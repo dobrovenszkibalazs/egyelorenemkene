@@ -1,9 +1,9 @@
 # (Projekt neve)
 
 # Csapattagok
-- Név
-- Név
-- Név
+- Dobrovenszki Balázs
+- Csapda Yeti
+- Varga Ádám József
 
 # Projekt leírása
 
