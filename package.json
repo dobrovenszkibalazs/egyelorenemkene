@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "- Dobrovenszki Balázs\r - Csapda Yeti\r - Varga Ádám József",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dobrovenszkibalazs/egyelorenemkene.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dobrovenszkibalazs/egyelorenemkene/issues"
+  },
+  "homepage": "https://github.com/dobrovenszkibalazs/egyelorenemkene#readme",
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "nodemon": "^3.1.14"
+  }
+}
