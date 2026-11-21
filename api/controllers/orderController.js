@@ -2,14 +2,12 @@ async function getOrder(req, res, next)
 {
     const { id } = req.params;
 
-    const order = await orderService.getOrder({ ID: id });
-
-    res.status(200).json(order);
+    res.status(200).json({ message: "getOrder done", ID: id });
 }
 
 async function getOrders(req, res, next)
 {
-    res.status(200).json(await orderService.getOrders());
+    res.status(200).json([]);
 }
 
 async function createOrder(req, res, next)
@@ -24,15 +22,16 @@ async function createOrder(req, res, next)
         products,
     };
 
-    res.status(201).json(await orderService.createOrder({ orderInfo }));
+    res.status(201).json({ message: "createOrder done", orderInfo });
 }
 
 async function updateOrder(req, res, next)
 {
     const { ID, orderTimestamp, buyerId, billingDetailsId, products } = req.body || {};
 
-    res.status(200).json(await orderService.updateOrder(
+    res.status(200).json(
     {
+        message: "updateOrder done",
         ID: req.params.id,
         orderInfo:
         {
@@ -42,12 +41,12 @@ async function updateOrder(req, res, next)
             billingDetailsId,
             products,
         }
-    }));
+    });
 }
 
 async function deleteOrder(req, res, next)
 {
-    res.status(200).json(await orderService.deleteOrder({ ID: req.params.id }));
+    res.status(200).json({ message: "deleteOrder done", ID: req.params.id });
 }
 
 module.exports =
