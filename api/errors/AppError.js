@@ -8,9 +8,7 @@ class AppError extends Error
         this.details = details;
         this.details.message = message;
         this.data = data;
-        this.name = this.constructor.name;
-
-        
+        this.name = this.constructor.name;        
     }
 }
 
