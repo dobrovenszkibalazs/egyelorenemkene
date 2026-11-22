@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
 
     BillingDetail.init(
         {
-            BuyerID: {
+            ID: {
                 type: DataTypes.UUID,
                 primaryKey: true,
                 allowNull: false,
