@@ -1,5 +1,3 @@
-const BillingDetail = require("./BillingDetail");
-
 module.exports = (sequelize) =>
 {
     const BillingDetails = require("./BillingDetail")(sequelize);
@@ -69,17 +67,80 @@ module.exports = (sequelize) =>
         onDelete: "CASCADE",
         onUpdate: "RESTRICT",
     });
-    
     //#endregion
     //#region Buyer Writes Comment
+    Buyers.hasMany(Comments, {
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    });
+    Comments.belongsTo(Buyers,{
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    });
     //#endregion
     //#region Buyer Orders Order
+    Buyers.hasMany(Orders, {
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "RESTRICT",
+        onUpdate: "RESTRICT",
+    });
+    Orders.belongsTo(Buyers, {
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "RESTRICT",
+        onUpdate: "RESTRICT",
+    });
     //#endregion
     //#region Buyer Plays Games
+    Buyers.hasMany(Games, {
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    });
+    Games.belongsTo(Buyers,{
+        foreignKey: {
+            name: "buyerId",
+            allowNull: false,
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    })
     //#endregion
-    //#region Buyer Has BillingDetails
-    //#endregion
-    //#region Order Has BillingDetails
+    //#region Order Has BillingDetails --> csak az orderhez tartozik a BillingDetails, a Buyerhez lekérdezésen keresztül kapcsolódik
+    Orders.hasOne(BillingDetails, {
+        foreignKey: {
+            name: "orderId",
+            allowNull: false,
+            unique: true
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    });
+    BillingDetails.belongsTo(Orders, {
+        foreignKey: {
+            name: "orderId",
+            allowNull: false,
+            unique: true
+        },
+        onDelete: "CASCADE",
+        onUpdate: "RESTRICT",
+    });
     //#endregion
     
     return {BillingDetails, Buyers, Comments, Games, Orders, Products, Sellers };
