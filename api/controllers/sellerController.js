@@ -12,11 +12,11 @@ async function getSellers(req, res, next)
 
 async function createSeller(req, res, next)
 {
-    let { userName, bio, password } = req.body || {};
+    let { username, bio, password } = req.body || {};
 
     const sellerInfo =
     {
-        userName,
+        username,
         bio,
         password
     };
@@ -26,7 +26,7 @@ async function createSeller(req, res, next)
 
 async function updateSeller(req, res, next)
 {
-    const { ID, userName, bio, password } = req.body || {};
+    const { ID, username, bio, password } = req.body || {};
 
     res.status(200).json(
     {
@@ -35,7 +35,7 @@ async function updateSeller(req, res, next)
         sellerInfo:
         {
             ID,
-            userName,
+            username,
             bio,
             password
         }
