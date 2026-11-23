@@ -1,3 +1,5 @@
+const DbError = require("../errors/DbError");
+
 class UserRepository
 {
     constructor(model)
@@ -45,15 +47,18 @@ class UserRepository
         }
     }
 
-    async createUser({ userInfo }, options = {})
+    async createUser({ userInfo })
     {
         try
         {
-            return await this.model.create(userInfo, options);
+            return await this.model.create(userInfo);
         }
         catch(error)
         {
-            console.error(error);
+            throw new DbError("Failed to create database entry.", {
+                data:userInfo,
+                cause: error,
+            });
         }
     }
 }
