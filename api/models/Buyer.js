@@ -1,30 +1,32 @@
 const { Model, DataTypes } = require("sequelize");
 
-module.exports = (sequelize) => {
-
+module.exports = (sequelize) =>
+{
     class Buyer extends Model {};
 
-    Buyer.init(
+    Buyer.init
+    (
         {
-            ID: {
+            ID:
+            {
                 type: DataTypes.UUID,
                 primaryKey: true,
                 allowNull: false,
                 defaultValue: DataTypes.UUIDV4,
             },
-            UserName: {
-                type: DataTypes.STRING,
+
+            userId:
+            {
+                type: DataTypes.UUID,
                 allowNull: false,
+                unique: true,
             },
-            Password: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            }
         },
+
         {
             sequelize,
             modelName: "Buyer",
-            tableName: "buyer",
+            tableName: "buyers",
             freezeTableName: true,
             timestamps: false,
         }
