@@ -61,6 +61,51 @@ class UserRepository
             });
         }
     }
+
+    async updateUser({ username, userInfo })
+    {
+        try
+        {
+            const af = await this.model.update(userInfo,
+            {
+                where: { username },
+            });
+            if(af === 0) {
+                 return { af, upd: null };
+            }
+            const upd = await this.getUser({ username });
+            return { af, upd };
+        }
+        catch(error)
+        {
+            throw new DbError("Failed to update database entry.", {
+                data:userInfo,
+                cause: error,
+            });
+        }
+    }
+
+    async deleteUser({ username })
+    {
+        try
+        {
+            const where = { username };
+            const d = await this.getUsers({ where });
+            const af = await this.model.destroy(
+            {
+                where,
+            });
+
+            return {message: "${af} User(s) deleted successfully, af, d,"};
+        }
+        catch(error)
+        {
+            throw new DbError("Failed to delete database entry(s).", {
+                data:username,
+                cause: error,
+            });
+        }
+    }
 }
 
 module.exports = UserRepository;
