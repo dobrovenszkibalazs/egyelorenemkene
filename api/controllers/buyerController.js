@@ -10,19 +10,6 @@ async function getBuyers(req, res, next)
     res.status(200).json([]);
 }
 
-async function createBuyer(req, res, next)
-{
-    let { username, password} = req.body || {};
-
-    const buyerInfo =
-    {
-        username,
-        password
-    };
-
-    res.status(201).json({ message: "createBuyer done", buyerInfo });
-}
-
 async function updateBuyer(req, res, next)
 {
     const { ID, username, password } = req.body || {};
@@ -38,11 +25,6 @@ async function updateBuyer(req, res, next)
             password
         }
     });
-}
-
-async function deleteBuyer(req, res, next)
-{
-    res.status(200).json({ message: "deleteBuyer done", ID: req.params.id });
 }
 
 module.exports =
