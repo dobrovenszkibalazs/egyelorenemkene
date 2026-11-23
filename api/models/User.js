@@ -40,6 +40,11 @@ module.exports = (sequelize) =>
                 allowNull: false,
                 defaultValue: "buyer",
             },
+            registeredAt:
+            {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
         },
 
         {
