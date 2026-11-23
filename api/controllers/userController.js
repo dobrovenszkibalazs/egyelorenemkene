@@ -35,7 +35,7 @@ async function updateUser(req, res, next)
         {
             ID,
             username,
-            password
+            password,
         }
     });
 }
