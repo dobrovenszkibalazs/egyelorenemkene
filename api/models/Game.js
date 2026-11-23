@@ -31,14 +31,19 @@ module.exports = (sequelize) => {
             Cost: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-            }
+            },
+            playedTimestamp: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW,
+            },
         },
         {
             sequelize,
             modelName: "Game",
             tableName: "games",
             freezeTableName: true,
-            timestamps: true,
+            timestamps: false,
         }
     );
 

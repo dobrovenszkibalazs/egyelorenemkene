@@ -19,14 +19,19 @@ module.exports = (sequelize) => {
             Rating:{
                 type: DataTypes.DECIMAL,
                 allowNull: false
-            }
+            },
+            writeTimestamp: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                defaultValue: DataTypes.NOW,
+            },
         },
         {
             sequelize,
             modelName: "Comment",
             tableName: "comment",
             freezeTableName: true,
-            timestamps: true,
+            timestamps: false,
         }
     );
 
