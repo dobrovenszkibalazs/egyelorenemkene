@@ -3,7 +3,7 @@ const express = require("express");
 
 const errorH = require("./api/middlewares/errorHandler")
 
-const {billingDetailRoutes, buyerRoutes, commentRoutes, gameRoutes, orderRoutes, productRoutes, sellerRoutes } = require("./api/routes");
+const {billingDetailRoutes, buyerRoutes, commentRoutes, gameRoutes, orderRoutes, productRoutes, sellerRoutes, userRoutes } = require("./api/routes");
 
 const app = express();
 
@@ -21,6 +21,8 @@ app.use("/api", api);
 //#endregion
 
 //#region api
+api.use("/users", userRoutes);
+
 api.use("/billingDetails", billingDetailRoutes);
 
 api.use("/buyers", buyerRoutes);
