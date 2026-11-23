@@ -22,17 +22,7 @@ module.exports = (sequelize) => {
             buyerId: {
                 type: DataTypes.UUID,
                 allowNull: false,
-            },
-
-            billingDetailsId: {
-                type: DataTypes.UUID,
-                allowNull: true,
-            },
-
-            products: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
+            }
         },
         {
             sequelize,
