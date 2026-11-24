@@ -31,7 +31,7 @@ module.exports =
 {
     getBuyer,
     getBuyers,
-    createBuyer,
+    /*createBuyer,*/
     updateBuyer,
-    deleteBuyer,
+    /*deleteBuyer,*/
 };

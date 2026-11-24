@@ -5,5 +5,6 @@ module.exports = {
     gameRoutes : require("./gameRoutes"),
     orderRoutes : require("./orderRoutes"),
     productRoutes : require("./productRoutes"),
-    sellerRoutes : require("./sellerRoutes")
+    sellerRoutes : require("./sellerRoutes"),
+    userRoutes : require("./userRoutes")
 }

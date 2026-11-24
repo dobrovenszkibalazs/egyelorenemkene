@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { getSeller, getSellers, createSeller, updateSeller, deleteSeller } = require("../controllers/gameController");
+const { getSeller, getSellers, createSeller, updateSeller, deleteSeller } = require("../controllers/sellerController");
 
 router.get("/:id",  getSeller);
 
