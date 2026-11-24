@@ -13,7 +13,7 @@ const api = express();
 //#region app
 app.use(express.json());
 
-app.use(...errorH)
+
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -37,6 +37,8 @@ api.use("/products", productRoutes);
 
 api.use("/sellers", sellerRoutes);
 //#endregion
+
+app.use(...errorH)
 
 module.exports =
 {
